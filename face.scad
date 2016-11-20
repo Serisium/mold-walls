@@ -8,7 +8,7 @@ e = 0.01;
 wall = .8;
 
 // Outer border width
-border = 15;
+border = 10;
 
 // mm clearance alongside each button
 clearance = 6;
@@ -57,11 +57,11 @@ module key(r, h, spike) {
 
 difference() {
     // Bounding box
-    cube([2*border + a_diameter + b_diameter + x_width + y_width + 5*wall, 2*border + a_diameter*4 + 5*wall, button_height + 2]);
+    cube([2*border + a_diameter + b_diameter + x_width + y_width + 5*wall, 2*border + 4*a_diameter + 5*wall, button_height + 2]);
 
     // Bottom indents
     translate([wall + e, wall + e, 2 + wall + e])
-        cube([2*border + a_diameter + b_diameter + 2 * x_width + 3 * wall, 2*border + a_diameter * 4 + wall * 3, button_height]);
+        cube([2*border + a_diameter + b_diameter + 2*x_width + 3*wall, 2*border + 4*a_diameter + 3*wall, button_height]);
 
     translate([border, border, 0]) {
 
@@ -99,6 +99,12 @@ difference() {
             }
         }
     }
+}
+
+for(x=[0:4], y=[0:6]) {
+    if(x==0 || x==4 || y==0 || y==6)
+        translate([border/2 + x*22.6, border/2 + y*18.9, 0])
+            key(2, 10, .8);
 }
 
 // Text
