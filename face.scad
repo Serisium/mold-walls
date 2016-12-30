@@ -8,7 +8,7 @@ e = 0.01;
 wall = .8;
 
 // Outer border width
-border = 10;
+border = 8;
 
 // mm clearance alongside each button
 clearance = 6;
@@ -46,13 +46,10 @@ module start_buttons() {
         cube([b_diameter, a_diameter, button_height]);    // The 2nd term here is eye-balled
 }
 
-// Hexagonal mold keys; "spike" is a decimal fraction that controls how tall the cylinder
-// gets before beginning to taper
-module key(r, h, spike) {
-    $fn=6;
-    cylinder(h = h*spike, r1 = r, r2 = r, center = false);
-    translate([0,0,h*spike])
-        cylinder(h = h*(1-spike), r1 = r, r2 = 0, center = false);
+// Hexagonal mold keys
+module key(r, h) {
+    $fn=10;
+    cylinder(h = 2.5, r = 2, center = false);
 }
 
 difference() {
@@ -103,8 +100,8 @@ difference() {
 
 for(x=[0:4], y=[0:6]) {
     if(x==0 || x==4 || y==0 || y==6)
-        translate([border/2 + x*22.6, border/2 + y*18.9, 0])
-            key(2, 10, .8);
+        translate([border/2 + x*22.20, border/2 + y*18.4, wall + 2])
+            key();
 }
 
 // Text
