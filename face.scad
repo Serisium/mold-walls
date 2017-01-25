@@ -21,29 +21,29 @@ y_width = 11 + clearance;
 x_length = 17 + clearance;
 x_width = 11 + clearance;
 start_diameter = 8 + clearance;
-button_height = 18;
+button_height = 20;
 
 // How many sets of buttons
 sets = 4;
 
 module a_button() {
-    translate([wall, wall, wall + e])
-        cube([a_diameter, a_diameter, button_height]);
+    translate([wall + 1, wall + 1, wall + e])
+        cube([a_diameter - 2, a_diameter - 2, button_height]);
 }
 
 module b_button() {
-    translate([wall, wall, wall + e])
-        cube([b_diameter, b_diameter, button_height]);
+    translate([wall + 1, wall + 1, wall + e])
+        cube([b_diameter - 2, b_diameter - 2, button_height]);
 }
 
 module x_button() {
-    translate([wall, wall, wall + e])
-        cube([x_width, x_length, button_height]);
+    translate([wall + 1, wall + 1, wall + e])
+        cube([x_width - 2, x_length - 2, button_height]);
 }
 
 module start_buttons() {
-    translate([wall, wall, wall + e])
-        cube([b_diameter, a_diameter, button_height]);    // The 2nd term here is eye-balled
+    translate([wall + 1, wall + 1, wall + e])
+        cube([b_diameter - 2, a_diameter - 2, button_height]);    // The 2nd term here is eye-balled
 }
 
 // Hexagonal mold keys
@@ -98,11 +98,22 @@ difference() {
     }
 }
 
+translate([border/2, border/2, e])
+    cube([border/2, 110, 5]);
+translate([90, border/2, e])
+    cube([border/2, 110, 5]);
+translate([border/2, border/2, e])
+    cube([90, border/2, 5]);
+translate([border/2, 113, e])
+    cube([90, border/2, 5]);
+
+/*
 for(x=[0:4], y=[0:6]) {
     if(x==0 || x==4 || y==0 || y==6)
         translate([border/2 + x*22.20, border/2 + y*18.4, wall + 2])
             key();
 }
+*/
 
 // Text
 /*
