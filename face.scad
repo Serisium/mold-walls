@@ -100,12 +100,12 @@ difference() {
 
 translate([border/2, border/2, e])
     cube([border/2, 110, 5]);
-translate([90, border/2, e])
+translate([89.5, border/2, e])
     cube([border/2, 110, 5]);
 translate([border/2, border/2, e])
-    cube([90, border/2, 5]);
-translate([border/2, 113, e])
-    cube([90, border/2, 5]);
+    cube([89.5, border/2, 5]);
+translate([border/2, 112, e])
+    cube([89.5, border/2, 5]);
 
 /*
 for(x=[0:4], y=[0:6]) {
