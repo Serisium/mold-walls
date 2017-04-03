@@ -13,14 +13,6 @@ border = 8;
 // Registration indent width
 indent = 4;
 
-// Number of buttons
-n = 4;
-
-// Button size constants
-button_width = 23;
-button_length = 23;
-button_height = 22;
-
 box_width = 2*wall + 2*border + button_width * n + indent * (n-1);
 box_length = 2*wall + 2*border + button_length;
 
